@@ -54,7 +54,7 @@
       features: ["Anniversary, proposal, lobola and wedding templates", "Culture themes with drawn heritage patterns", "RSVPs that become tickets and reply on WhatsApp", "Accounts and saved projects on Supabase", "Installable PWA with a service worker"],
       stack: ["javascript","html5","css","supabase","pwa","sw","vercel"] },
     { slug: "onefortyfour", name: "ONEFORTYFOUR®", type: "store", badge: "E-commerce · Fashion", year: "2026",
-      client: "Streetwear brand", img: "/assets/work/onefortyfour.webp", url: "https://onefortyfour.xyz/", domain: "onefortyfour.xyz",
+      client: "Streetwear brand", img: "/assets/work/onefortyfour-v2.webp", url: "https://onefortyfour.xyz/", domain: "onefortyfour.xyz",
       line: "Monochrome, drop-led streetwear store.",
       desc: "A custom storefront and commerce back end for a streetwear label, built around limited drops and money-safe order handling.",
       features: ["Next.js App Router storefront", "Supabase Postgres catalogue and orders", "Yoco Checkout with idempotent webhooks", "Admin tools and schema migrations in version control"],
