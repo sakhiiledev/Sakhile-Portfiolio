@@ -219,14 +219,6 @@
     b.addEventListener("mouseleave", () => b.style.transform = "");
   });
 
-  /* ------------ Cursor ------------ */
-  if (fine) {
-    const cur = document.querySelector(".cursor"); let cx = 0, cy = 0, tx = 0, ty = 0;
-    addEventListener("mousemove", e => { tx = e.clientX; ty = e.clientY; });
-    (function loop() { cx += (tx - cx) * .2; cy += (ty - cy) * .2; cur.style.transform = `translate(${cx}px,${cy}px) translate(-50%,-50%)`; requestAnimationFrame(loop); })();
-    document.addEventListener("mouseover", e => cur.classList.toggle("is-view", !!e.target.closest(".proj")));
-  }
-
   /* ------------ Scroll-linked device tilt ------------ */
   const front = document.querySelector(".device--front");
   if (front) addEventListener("scroll", () => {
