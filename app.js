@@ -5,7 +5,16 @@
 
   // Labels for tech that has no brand icon
   const PLAIN = { yoco: "Yoco", paystack: "Paystack", web3forms: "Web3Forms", lenis: "Lenis", dndkit: "dnd-kit", tesseract: "Tesseract OCR", pdfjs: "pdf.js", nodemailer: "Nodemailer", imagekit: "ImageKit", rls: "Row-level security", motion: "Motion", router: "React Router", sw: "Service worker", csp: "CSP / HSTS", modbus: "Modbus / DNP3", packet: "Packet Tracer", vlan: "VLANs", rtu: "RTUs", iec: "IEC 61850", agile: "Agile / Scrum", sql: "SQL" };
-  const GLYPH = { vlan: "⌗", packet: "◫", modbus: "⇄", iec: "ϟ", rtu: "▣", sql: "⛁", agile: "↻" };
+  const G = (d) => `<svg class="line-ico" viewBox="0 0 24 24" aria-hidden="true">${d}</svg>`;
+  const GLYPH = {
+    vlan: G('<rect x="3" y="4" width="18" height="6" rx="1.5"/><rect x="3" y="14" width="18" height="6" rx="1.5"/><path d="M7 7h.01M7 17h.01"/>'),
+    packet: G('<circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="12" cy="18" r="2.5"/><path d="M8.5 6h7M7.3 8.2l3.4 7.6M16.7 8.2l-3.4 7.6"/>'),
+    modbus: G('<path d="M4 8h14l-3-3M20 16H6l3 3"/>'),
+    iec: G('<path d="M13 3L5 14h6l-1 7 8-11h-6z"/>'),
+    rtu: G('<rect x="5" y="5" width="14" height="14" rx="2"/><path d="M9 1.5v3.5M15 1.5v3.5M9 19v3.5M15 19v3.5M1.5 9h3.5M1.5 15h3.5M19 9h3.5M19 15h3.5"/><rect x="9" y="9" width="6" height="6" rx="1"/>'),
+    sql: G('<ellipse cx="12" cy="5.5" rx="7" ry="2.5"/><path d="M5 5.5v13c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5v-13M5 12c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5"/>'),
+    agile: G('<path d="M20 12a8 8 0 1 1-2.3-5.6M20 4v4h-4"/>')
+  };
   const LABEL = { tanstack: "TanStack", sqlalchemy: "SQLModel", jwt: "JWT", uv: "uv", shadcn: "shadcn/ui", radix: "Radix UI", pwa: "PWA" };
 
   const svg = (k) => {
@@ -93,7 +102,7 @@
       <div class="proj__body">
         <div class="proj__top">
           <div><h3>${p.name}</h3><p class="proj__domain">${p.domain}</p></div>
-          <span class="go" aria-hidden="true">↗</span>
+          <span class="go" aria-hidden="true">↗\uFE0E</span>
         </div>
         <p class="proj__line">${p.line}</p>
         <div class="stack-row">${p.stack.slice(0, p.size === "big" ? 12 : 5).map(chip).join("")}</div>
@@ -141,7 +150,7 @@
     ["Networks & ops", ["cisco","wireshark","vlan","packet","modbus","iec","rtu","sql","agile"]]
   ];
   document.getElementById("toolkitGroups").innerHTML = groups.map(([t, ks]) => `
-    <div class="tk reveal"><h3>${t}</h3><div class="tk__items">${ks.map(k => `<div class="tki" style="--c:${color(k)}">${I[k] ? svg(k) : `<span class="glyph">${GLYPH[k] || "◇"}</span>`}<span>${name(k)}</span></div>`).join("")}</div></div>`).join("");
+    <div class="tk reveal"><h3>${t}</h3><div class="tk__items">${ks.map(k => `<div class="tki" style="--c:${color(k)}">${I[k] ? svg(k) : (GLYPH[k] || "")}<span>${name(k)}</span></div>`).join("")}</div></div>`).join("");
 
   fillStacks();
 
